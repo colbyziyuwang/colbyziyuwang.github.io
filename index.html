@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Academic homepage of Ziyu (Colby) Wang, PhD Student in Computer Science at Toronto Metropolitan University." />
+  <title>Ziyu (Colby) Wang | Academic Homepage</title>
+  <style>
+    :root {
+      --bg: #f7f8fb;
+      --card: #ffffff;
+      --text: #172033;
+      --muted: #657084;
+      --accent: #3157d5;
+      --accent-soft: #eaf0ff;
+      --border: #e5e9f2;
+      --shadow: 0 18px 45px rgba(30, 42, 80, 0.08);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: linear-gradient(180deg, #fbfcff 0%, var(--bg) 100%);
+      color: var(--text);
+      line-height: 1.65;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .container {
+      width: min(1080px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(16px);
+      background: rgba(251, 252, 255, 0.88);
+      border-bottom: 1px solid rgba(229,233,242,0.8);
+    }
+    .nav-inner {
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .brand {
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      font-size: 0.95rem;
+    }
+
+    header {
+      padding: 84px 0 54px;
+    }
+    .hero {
+      display: grid;
+      grid-template-columns: 1.4fr 0.8fr;
+      gap: 44px;
+      align-items: center;
+    }
+    .eyebrow {
+      display: inline-block;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 0.86rem;
+      margin-bottom: 18px;
+    }
+    h1 {
+      font-size: clamp(2.6rem, 6vw, 5.2rem);
+      line-height: 0.98;
+      margin: 0;
+      letter-spacing: -0.055em;
+    }
+    .subtitle {
+      font-size: clamp(1.08rem, 2vw, 1.35rem);
+      color: var(--muted);
+      margin: 22px 0 16px;
+      max-width: 760px;
+    }
+    .intro {
+      color: var(--muted);
+      max-width: 760px;
+      font-size: 1.02rem;
+    }
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 17px;
+      border-radius: 12px;
+      font-weight: 700;
+      border: 1px solid var(--border);
+      background: var(--card);
+      box-shadow: 0 6px 20px rgba(30,42,80,0.04);
+    }
+    .button.primary {
+      color: white;
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+    .portrait {
+      width: min(280px, 74vw);
+      aspect-ratio: 1 / 1;
+      margin: 0 auto;
+      border-radius: 32px;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(255,255,255,.8), transparent 36%),
+        linear-gradient(145deg, #6e86ea, #2447b2);
+      box-shadow: var(--shadow);
+      display: grid;
+      place-items: center;
+      color: white;
+      font-size: 4.8rem;
+      font-weight: 800;
+      letter-spacing: -0.05em;
+      border: 8px solid rgba(255,255,255,.7);
+    }
+
+    section { padding: 38px 0; }
+    .section-title {
+      font-size: 1.8rem;
+      margin: 0 0 18px;
+      letter-spacing: -0.03em;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 24px;
+      box-shadow: 0 10px 30px rgba(30,42,80,0.045);
+    }
+    .card h3 {
+      margin: 0 0 8px;
+      font-size: 1.08rem;
+    }
+    .card p {
+      margin: 0;
+      color: var(--muted);
+    }
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .tag {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-weight: 650;
+      font-size: 0.92rem;
+    }
+    .pub {
+      padding: 22px 0;
+      border-top: 1px solid var(--border);
+    }
+    .pub:first-of-type { border-top: 0; padding-top: 0; }
+    .pub-title {
+      font-weight: 780;
+      font-size: 1.05rem;
+      margin-bottom: 5px;
+    }
+    .pub-meta {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    .year {
+      display: inline-block;
+      margin-top: 8px;
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 4px 9px;
+      border-radius: 999px;
+    }
+
+    footer {
+      margin-top: 42px;
+      border-top: 1px solid var(--border);
+      padding: 30px 0 42px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 760px) {
+      .hero { grid-template-columns: 1fr; }
+      .portrait { order: -1; width: 180px; border-radius: 26px; }
+      .grid { grid-template-columns: 1fr; }
+      .nav-links { gap: 12px; font-size: 0.86rem; }
+      header { padding-top: 48px; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="container nav-inner">
+      <a class="brand" href="#top">Ziyu Wang</a>
+      <div class="nav-links">
+        <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
+        <a href="#thesis">Thesis</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="top">
+    <header>
+      <div class="container hero">
+        <div>
+          <span class="eyebrow">Academic Homepage</span>
+          <h1>Ziyu (Colby) Wang</h1>
+          <p class="subtitle">PhD Student in Computer Science at Toronto Metropolitan University.</p>
+          <p class="intro">
+            My research interests span reinforcement learning, automated planning, machine learning,
+            AI for decision making, and large language models. I am particularly interested in building
+            reliable learning and reasoning systems for sequential decision-making and knowledge-intensive tasks.
+          </p>
+          <div class="buttons">
+            <a class="button primary" href="https://scholar.google.com/citations?user=NXAC-NMAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+            <a class="button" href="mailto:c12wang@torontomu.ca">Email</a>
+            <a class="button" href="#publications">Publications</a>
+          </div>
+        </div>
+        <div class="portrait" aria-label="Initials avatar">ZW</div>
+      </div>
+    </header>
+
+    <section id="research">
+      <div class="container">
+        <h2 class="section-title">Research Interests</h2>
+        <div class="tag-list">
+          <span class="tag">Reinforcement Learning</span>
+          <span class="tag">Automated Planning</span>
+          <span class="tag">Machine Learning</span>
+          <span class="tag">AI for Decision Making</span>
+          <span class="tag">Large Language Models</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="publications">
+      <div class="container">
+        <h2 class="section-title">Selected Publications</h2>
+        <div class="card">
+          <div class="pub">
+            <div class="pub-title">Trust the Similar Ones: Belief-Based Q-Learning with Embedding Proximity</div>
+            <div class="pub-meta">Ziyu Wang · 2026</div>
+            <span class="year">2026</span>
+          </div>
+          <div class="pub">
+            <div class="pub-title">Relaxed Transition Kernels can Cure Underestimation in Adversarial Offline Reinforcement Learning</div>
+            <div class="pub-meta">Ziyu Wang, Ping-Chun Hsieh, Yu-Shuen Wang, Yun-Hsuan Lien · Asian Conference on Machine Learning</div>
+            <span class="year">2025</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="thesis">
+      <div class="container">
+        <h2 class="section-title">Master's Thesis</h2>
+        <div class="card">
+          <h3>Numerical Faithfulness and Failure Modes in Financial RAG Systems</h3>
+          <p>
+            Toronto Metropolitan University, 2026. Research on numerical faithfulness, failure modes,
+            retrieval-augmented generation, and lightweight verification for financial question answering.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2 class="section-title">About</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>Current</h3>
+            <p>PhD Student in Computer Science at Toronto Metropolitan University.</p>
+          </div>
+          <div class="card">
+            <h3>Research Focus</h3>
+            <p>Learning, reasoning, planning, and trustworthy AI systems for decision-making.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <h2 class="section-title">Contact</h2>
+        <div class="card">
+          <h3>Get in touch</h3>
+          <p>
+            Email: <a href="mailto:c12wang@torontomu.ca">c12wang@torontomu.ca</a><br/>
+            Toronto Metropolitan University
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © 2026 Ziyu (Colby) Wang · Built as a lightweight static academic homepage.
+    </div>
+  </footer>
+</body>
+</html>
