@@ -27,11 +27,7 @@
     }
     a { color: var(--accent); text-decoration: none; }
     a:hover { text-decoration: underline; }
-
-    .container {
-      width: min(1080px, calc(100% - 40px));
-      margin: 0 auto;
-    }
+    .container { width: min(1080px, calc(100% - 40px)); margin: 0 auto; }
 
     nav {
       position: sticky;
@@ -48,20 +44,10 @@
       justify-content: space-between;
       gap: 24px;
     }
-    .brand {
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      color: var(--text);
-    }
-    .nav-links {
-      display: flex;
-      gap: 22px;
-      font-size: 0.95rem;
-    }
+    .brand { font-weight: 800; letter-spacing: -0.02em; color: var(--text); }
+    .nav-links { display: flex; gap: 22px; font-size: 0.95rem; }
 
-    header {
-      padding: 84px 0 54px;
-    }
+    header { padding: 84px 0 54px; }
     .hero {
       display: grid;
       grid-template-columns: 1.4fr 0.8fr;
@@ -118,22 +104,17 @@
       background: var(--accent);
       border-color: var(--accent);
     }
-    .portrait {
+
+    .portrait-photo {
       width: min(280px, 74vw);
       aspect-ratio: 1 / 1;
       margin: 0 auto;
       border-radius: 32px;
-      background:
-        radial-gradient(circle at 30% 30%, rgba(255,255,255,.8), transparent 36%),
-        linear-gradient(145deg, #6e86ea, #2447b2);
+      object-fit: cover;
+      object-position: center 24%;
       box-shadow: var(--shadow);
-      display: grid;
-      place-items: center;
-      color: white;
-      font-size: 4.8rem;
-      font-weight: 800;
-      letter-spacing: -0.05em;
       border: 8px solid rgba(255,255,255,.7);
+      background: var(--card);
     }
 
     section { padding: 38px 0; }
@@ -154,19 +135,9 @@
       padding: 24px;
       box-shadow: 0 10px 30px rgba(30,42,80,0.045);
     }
-    .card h3 {
-      margin: 0 0 8px;
-      font-size: 1.08rem;
-    }
-    .card p {
-      margin: 0;
-      color: var(--muted);
-    }
-    .tag-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
+    .card h3 { margin: 0 0 8px; font-size: 1.08rem; }
+    .card p { margin: 0; color: var(--muted); }
+    .tag-list { display: flex; flex-wrap: wrap; gap: 10px; }
     .tag {
       padding: 8px 12px;
       border-radius: 999px;
@@ -175,20 +146,10 @@
       font-weight: 650;
       font-size: 0.92rem;
     }
-    .pub {
-      padding: 22px 0;
-      border-top: 1px solid var(--border);
-    }
+    .pub { padding: 22px 0; border-top: 1px solid var(--border); }
     .pub:first-of-type { border-top: 0; padding-top: 0; }
-    .pub-title {
-      font-weight: 780;
-      font-size: 1.05rem;
-      margin-bottom: 5px;
-    }
-    .pub-meta {
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
+    .pub-title { font-weight: 780; font-size: 1.05rem; margin-bottom: 5px; }
+    .pub-meta { color: var(--muted); font-size: 0.95rem; }
     .year {
       display: inline-block;
       margin-top: 8px;
@@ -199,7 +160,6 @@
       padding: 4px 9px;
       border-radius: 999px;
     }
-
     footer {
       margin-top: 42px;
       border-top: 1px solid var(--border);
@@ -210,7 +170,7 @@
 
     @media (max-width: 760px) {
       .hero { grid-template-columns: 1fr; }
-      .portrait { order: -1; width: 180px; border-radius: 26px; }
+      .portrait-photo { order: -1; width: 180px; border-radius: 26px; }
       .grid { grid-template-columns: 1fr; }
       .nav-links { gap: 12px; font-size: 0.86rem; }
       header { padding-top: 48px; }
@@ -248,7 +208,7 @@
             <a class="button" href="#publications">Publications</a>
           </div>
         </div>
-        <div class="portrait" aria-label="Initials avatar">ZW</div>
+        <img class="portrait-photo" src="profile.png" alt="Ziyu (Colby) Wang">
       </div>
     </header>
 
@@ -328,7 +288,7 @@
 
   <footer>
     <div class="container">
-      © 2026 Ziyu (Colby) Wang · Built as a lightweight static academic homepage.
+      © 2026 Ziyu (Colby) Wang · Academic Homepage
     </div>
   </footer>
 </body>
